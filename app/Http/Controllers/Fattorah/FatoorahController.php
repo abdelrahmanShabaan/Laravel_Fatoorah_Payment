@@ -3,12 +3,32 @@
 namespace App\Http\Controllers\Fattorah;
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\FatoorahServices;
 use Illuminate\Http\Request;
 
 class FatoorahController extends Controller
 {
+
+    /**
+     * Here i will modifie new mehtod have dependency injection with object of another class as @param of service of fatoorah
+     * and here i will make private function have all data of object from that class i call as paramter
+     */
+    private $fatoorahServices;
+    public function __construct(FatoorahServices $fatoorahServices)
+    {
+        $this->fatoorahServices = $fatoorahServices;
+
+    }
     
 
+        /**
+         * Undocumented function
+         *
+         * @return void
+         * 
+         * Here i will make payorder method have data of product or i can make this :
+         * Product::get('item) with data of it 
+         */
         public function payorder()
         {
             $data = [
@@ -18,8 +38,8 @@ class FatoorahController extends Controller
                 'InvoiceValue'       => '100',
                 //Fill optional data
                 'CustomerEmail'      => 'boodyelmasry6@gmail.com',
-                'CallBackUrl'        => env('fatora.success_url'),
-                'ErrorUrl'           => env('fatora.error_url'), 
+                'CallBackUrl'        => env('success_url'),
+                'ErrorUrl'           => env('error_url'), 
                 'Language'           => 'en',
                 'DisplayCurrencyIso' => 'USD',
                 /**
@@ -35,5 +55,9 @@ class FatoorahController extends Controller
                 //'CustomerAddress'    => $customerAddress,
                 //'InvoiceItems'       => $invoiceItems,
             ];
+
+            /**
+             * Here i will call service of payment
+             */
         }
 }

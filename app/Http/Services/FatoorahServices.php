@@ -62,6 +62,18 @@ class FatoorahServices
     }
 
 
+    public function sendPayment($data)
+    {
+        $requestData = $this->parsePaymentData();
+        $respone = $this->buildRequest('v2/SendPayment' , 'POST', $requestData);
+        if($respone)
+        {
+            $this->saveTransactionPayment($patient_id , $response['Data'] ['InvoiceId']);
+        }
+        return $respone;
+    }
+
+
 
 
 
