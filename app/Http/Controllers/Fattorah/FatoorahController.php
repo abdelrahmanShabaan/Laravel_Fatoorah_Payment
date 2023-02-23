@@ -27,7 +27,7 @@ class FatoorahController extends Controller
          * @return void
          * 
          * Here i will make payorder method have data of product or i can make this :
-         * Product::get('item) with data of it 
+         * Product::select('item') with data of it 
          */
         public function payorder()
         {
@@ -59,5 +59,7 @@ class FatoorahController extends Controller
             /**
              * Here i will call service of payment
              */
+
+                $this->fatoorahServices->sendPayment($data);
         }
 }
