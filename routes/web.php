@@ -20,3 +20,9 @@ Route::get('/', function () {
 
 
 Route::get('pay' , [FatoorahController::class , 'payorder'])->name('payNow');
+
+/**
+ * THis for getwaypayment success message and failed messages
+ */
+Route::get('callback',function(){ return 'success'; }); 
+Route::get('error',function(){ return 'payment failed '; });
