@@ -41,8 +41,8 @@ class FatoorahServices
          */
         $this->headers =
         [
-            'content-Type' => 'application/json',
-            'authorization' => 'Bearer' . env('Fatoorah_token') 
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer' . env('Fatoorah_token') 
         ];
     }
 
@@ -107,8 +107,7 @@ class FatoorahServices
         // }
         // return $respone;
         //You can save payment data in database as per your needs
-$invoiceId   = $data->InvoiceId;
-$paymentLink = $data->InvoiceURL;
+
     }
 
 

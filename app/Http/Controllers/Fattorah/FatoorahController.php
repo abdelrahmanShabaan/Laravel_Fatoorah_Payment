@@ -34,7 +34,7 @@ class FatoorahController extends Controller
             $data = [
                 "CustomerName"       => 'fname lname',
                 "NotificationOption" => 'Lnk', 
-                "InvoiceValue"       => '50',
+                "InvoiceValue"       => '100',
                 "CustomerEmail"      => 'boodyelmasry6@gmail.com',
                 "CallBackUrl"        => 'https://www.youtube.com/',
                 "ErrorUrl"           => 'https://www.google.com/', 

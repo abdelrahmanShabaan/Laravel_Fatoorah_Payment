@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Fattorah\FatoorahController;
+use App\Http\Controllers\MyFatoorahController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('pay' , [FatoorahController::class , 'payorder']);
+Route::post('pay' , [MyFatoorahController::class , 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

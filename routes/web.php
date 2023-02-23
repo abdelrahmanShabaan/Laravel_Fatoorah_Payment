@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 
-Route::post('pay' , [FatoorahController::class , 'payorder']);
+Route::post('pay' , [FatoorahController::class , 'index']);
 
 /**
  * THis for getwaypayment success message and failed messages
