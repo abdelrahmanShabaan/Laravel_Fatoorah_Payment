@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Fattorah\FatoorahController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('pay' , [FatoorahController::class , 'payorder'])->name('payNow');

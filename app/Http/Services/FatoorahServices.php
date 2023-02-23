@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
 
 class FatoorahServices 
 {
@@ -21,7 +22,13 @@ class FatoorahServices
     public function __construct(Client $request_client)
     {   
 
+        /**
+         * Here is that object for client request || we will contact with client after this
+         */
         $this->request_client = $request_client;
+        /**
+         * Here is request will send from client
+         */
         $this->base_url = env('fatora_base_url');
         /**
          * Here is saved way for any request sent to paid 
@@ -32,8 +39,25 @@ class FatoorahServices
             'content-type' => 'application/json',
             'authorization' => 'Bearer' . env('Fatoorah_token') 
         ];
-        
-        
+    }
+
+
+    /**
+     * Undocumented function
+     *
+     * @param  $uri
+     * @param  $method
+     * @param array $body
+     * @return false | mixed
+     * @throws \GuzzuleHttp\Exception\GuzzleException
+     */
+    private function buildRequest($uri , $method ,$body = [])
+    {
+        $request  = new Request($method  , $this->base_url . $uri , $this->headers);
+
+        if(!$body)
+        return false;
+    
 
     }
 
